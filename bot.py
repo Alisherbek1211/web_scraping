@@ -49,7 +49,7 @@ def get_url(update: Update, context: CallbackContext) -> None:
     # for post in posts:
         # titles.append(post.find("td",class_="small").text)
     weakend= soup.find_all("div", class_="row pdflexi")[0].find("span",class_="smaller soft").text
-    print(weakend)
+    # print(weakend)
     update.message.reply_text(f"{weakend}-{str(posts)[:5]}")
 
 
