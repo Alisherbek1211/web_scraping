@@ -51,7 +51,7 @@ def get_url(update: Update, context: CallbackContext) -> None:
 def main() -> None:
     """Start the bot."""
     # Create the Updater and pass it your bot's token.
-    updater = Updater("5470778624:AAHzp7Vp9Kod3wgFkvreaGDx7PqWnogM1ko")
+    updater = Updater("BOT_TOKEN")
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
