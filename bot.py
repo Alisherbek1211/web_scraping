@@ -38,14 +38,19 @@ def get_url(update: Update, context: CallbackContext) -> None:
     URL = f"https://www.timeanddate.com/weather/uzbekistan/{update.message.text}/ext"
     page = requests.get(URL)
     soup = BS(page.content, "html.parser")
-    posts = soup.find_all("div", class_="row pdflexi")
+    # posts = soup.find_all("div", class_="row pdflexi")[0]
+    # print(posts)
+    # posts = soup.find_all("div", class_="row pdflexi")[0].text
+    # print(posts)  
+    posts = soup.find_all("div", class_="row pdflexi")[0].find("td",class_="small").text
+    # day = soup.find_all("div", class_="row pdflexi")[0].find("th")
+    # print(day)
     # titles = []
     # for post in posts:
         # titles.append(post.find("td",class_="small").text)
-    posts = soup.find_all("div", class_="row pdflexi")[0].find("td",class_="small").text
-    # print(posts)  
-
-    update.message.reply_text(posts)
+    weakend= soup.find_all("div", class_="row pdflexi")[0].find("span",class_="smaller soft").text
+    print(weakend)
+    update.message.reply_text(f"{weakend}-{str(posts)[:5]}")
 
 
 def main() -> None:
